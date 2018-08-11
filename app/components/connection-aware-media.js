@@ -4,18 +4,18 @@ import { computed } from '@ember/object';
 export default Component.extend({
   imageUrl: computed('connectionType', function() {
     let _connectionType = this.get('connectionType');
-    let _imageSrc = this.get('imageSrc');
+
     switch(_connectionType) {
     case '3g':
-      return _imageSrc.hiRes;
+      return this.get('hiResImage');
     case '2g':
-      return _imageSrc.lowRes;
+      return this.get('lowResImage');
     default:
-      return _imageSrc.lowRes;
+      return this.get('lowResImage');
     }
   }),
-  mp4: computed.reads('videoSrc.mp4'),
-  webm: computed.reads('videoSrc.webm'),
+  mp4: computed.reads('mp4Video'),
+  webm: computed.reads('webmVideo'),
 
   componentType: computed('connectionType', function() {
     let _connectionType = this.get('connectionType');
