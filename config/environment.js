@@ -45,7 +45,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.baseUrl = '/connection-aware-ember/';
+    ENV.locationType = 'hash';
+    ENV.rootURL = '/connection-aware-ember/';
   }
 
   return ENV;
