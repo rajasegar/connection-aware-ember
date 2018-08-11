@@ -6,7 +6,7 @@ export default Controller.extend({
     highResImage: 'https://raw.githubusercontent.com/rajasegar/connection-aware-ember/master/public/assets/img/Tomster-Logo.png',
 
 
-    mp4Video: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1256430/chewie.mp4',
-    webmVideo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1256430/chewie.webm'
+    oggVideo: 'http://download.blender.org/peach/trailer/trailer_400p.ogg',
+    webmVideo: 'http://dl3.webmfiles.org/big-buck-bunny_trailer.webm'
 
 });

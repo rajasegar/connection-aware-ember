@@ -1,18 +1,2 @@
-{{!--  
-{{#if (eq connectionType 'offline') }}
-  {{place-holder alt=alt}}
-{{/if}}
-{{#if (eq connectionType '4g') }}
-  {{ember-video mp4=mp4 webm=webm alt=alt}}
-{{/if}}
-{{#if (eq connectionType '3g') }}
-  {{ember-image alt=alt imageSrc=imageUrl  }}
-{{/if}}
-{{#if (eq connectionType 'undefined') }}
-  {{ember-image alt=alt imageSrc=imageUrl }}
-{{/if}}
-
-
---}}
-
-{{component componentType alt=alt mp4=mp4 webm=webm imageSrc=imageUrl}}
+{{component componentType alt=alt ogg=ogg webm=webm imageSrc=imageUrl}}
+<p class="caption">Effection Connection Type: <strong>{{connectionType}}</strong></p>

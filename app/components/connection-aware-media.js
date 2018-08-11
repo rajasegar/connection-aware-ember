@@ -1,34 +1,29 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import {
+  computed
+} from '@ember/object';
 
 export default Component.extend({
   imageUrl: computed('connectionType', function() {
     let _connectionType = this.get('connectionType');
+    return (_connectionType === '3g') ? this.get('highResImage') : this.get('lowResImage');
 
-    switch(_connectionType) {
-    case '3g':
-      return this.get('highResImage');
-    case '2g':
-      return this.get('lowResImage');
-    default:
-      return this.get('lowResImage');
-    }
   }),
-  mp4: computed.reads('mp4Video'),
+  ogg: computed.reads('oggVideo'),
   webm: computed.reads('webmVideo'),
 
   componentType: computed('connectionType', function() {
     let _connectionType = this.get('connectionType');
-    switch(_connectionType) {
-    case 'offline':
-      return 'place-holder';
-    case '4g':
-      return 'ember-video';
-    case '3g':
-    case '2g':
-      return 'ember-image';
-    default:
-      return 'place-holder';
+    switch (_connectionType) {
+      case 'offline':
+        return 'place-holder';
+      case '4g':
+        return 'ember-video';
+      case '3g':
+      case '2g':
+        return 'ember-image';
+      default:
+        return 'place-holder';
     }
   }),
 
@@ -43,11 +38,16 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    navigator.connection.addEventListener('change', this.setConnectionType.bind(this));
+    if (this.get('autoUpdate') && this.hasNetworkInfoSupport()) {
+      navigator.connection.addEventListener('change', this.setConnectionType.bind(this));
+    }
+
   },
 
   willDestroyElement() {
-    navigator.connection.removeEventListener('change', this.setConnectionType.bind(this));
+    if (this.get('autoUpdate') && this.hasNetworkInfoSupport()) {
+      navigator.connection.removeEventListener('change', this.setConnectionType.bind(this));
+    }
   },
 
   setConnectionType() {
@@ -71,7 +71,7 @@ export default Component.extend({
     return connection.effectiveType;
   },
 
-  hasNetworkInfoSupport(){
+  hasNetworkInfoSupport() {
     return navigator.connection && navigator.connection.effectiveType;
   }
 });

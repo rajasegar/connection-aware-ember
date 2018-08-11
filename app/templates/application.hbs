@@ -4,31 +4,29 @@
     {{connection-aware-media
       highResImage=highResImage
       lowResImage=lowResImage
-      mp4Video=mp4Video
+      oggVideo=oggVideo
       webmVideo=webmVideo
-      alt="Tomster The Ember Mascot"}}
+      alt="Tomster The Ember Mascot"
+      autoUpdate=true
+    }}
   </div>
   <div class="explanation">
     <p>
       The above Ember component will render different elements
       based on the user's connection quality:
     </p>
-    <dl>
-      <dt>offline:</dt>
-      <dd>placeholder with alt text</dd>
-      <dt>2g:</dt>
-      <dd>low resolution image</dd>
-      <dt>3g:</dt>
-      <dd>high resolution image</dd>
-      <dt>4g:</dt>
-      <dd>video player</dd>
-    </dl>
+    <ul>
+      <li>offline: placeholder with alt text</li>
+      <li>2g: low resolution image</li>
+      <li>3g: high resolution image</li>
+      <li>4g: video player</li>
+    </ul>
     <figure>
       <img
         src="https://raw.githubusercontent.com/rajasegar/connection-aware-ember/master/public/assets/img/network.png"
         alt="chrome devtools network tab"
       />
-      <figcaption>Try setting different connection speeds in devtools > network tab</figcaption>
+      <figcaption>Try setting different connection speeds in Chrome Devtools > Network tab</figcaption>
     </figure>
     <p>
       It uses the <a href="https://wicg.github.io/netinfo/">Network Information API</a>,
