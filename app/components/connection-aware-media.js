@@ -25,7 +25,6 @@ export default Component.extend({
     case '4g':
       return 'ember-video';
     case '3g':
-      return 'ember-image';
     case '2g':
       return 'ember-image';
     default:
@@ -36,9 +35,9 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     // check connection type before first render.
-    if (navigator.connection && navigator.connection.effectiveType) {
+    if (this.hasNetworkInfoSupport()) {
       const connectionType = navigator.onLine ? navigator.connection.effectiveType : 'offline';
-      console.log(connectionType);
+      console.log(connectionType); // eslint-disable-line
       this.set('connectionType', connectionType);
     }
   },
@@ -54,7 +53,7 @@ export default Component.extend({
   setConnectionType() {
     if (this.hasNetworkInfoSupport) {
       const connectionType = this.getConnectionType();
-      console.log(connectionType);
+      console.log(connectionType); // eslint-disable-line
       this.set('connectionType', connectionType);
     }
   },
