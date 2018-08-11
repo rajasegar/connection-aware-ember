@@ -1,5 +1,33 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<h1>Connection Aware Ember Component</h1>
+<div class="container">
+  <div class="demo">
+    {{connection-aware-media imageSrc=imageSrc videoSrc=videoSrc alt="Chewie the Alpaca"}}
+  </div>
+  <div class="explanation">
+    <p>
+      The above react component will render different elements 
+      based on the user's connection quality:
+    </p>
+    <dl>
+      <dt>offline:</dt>
+      <dd>placeholder with alt text</dd>
+      <dt>2g:</dt>
+      <dd>low resolution image</dd>
+      <dt>3g:</dt>
+      <dd>high resolution image</dd>
+      <dt>4g:</dt>
+      <dd>video player</dd>
+    </dl>
+    <figure>
+      <img 
+        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1256430/network.png" 
+        alt="chrome devtools network tab" 
+      />
+      <figcaption>Try setting different connection speeds in devtools > network tab</figcaption>
+    </figure>
+    <p>
+      It uses the <a href="https://wicg.github.io/netinfo/">Network Information API</a>, 
+      which currently is <a href="https://caniuse.com/#search=Network%20Information%20API">only supported in Chrome</a>. Read more about this <a href="https://mxb.at/blog/connection-aware-components/">on my blog</a>.
+    </p>
+  </div>
+</div>
