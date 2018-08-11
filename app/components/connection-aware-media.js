@@ -7,7 +7,7 @@ export default Component.extend({
 
     switch(_connectionType) {
     case '3g':
-      return this.get('hiResImage');
+      return this.get('highResImage');
     case '2g':
       return this.get('lowResImage');
     default:
